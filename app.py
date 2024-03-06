@@ -12,5 +12,12 @@ def view_products():
 
     return data
 
+@app.route("/<id>", methods=['GET'])
+def search_products(id):
+    response = requests.get(f"{url}/{id}")
+    data = response.json()
+
+    return data
+
 if __name__ == "__main__":
     app.run(debug=True)
